@@ -3,6 +3,16 @@ name: Events Demo 1
 on:
   pull_request:
     types: [ opened ]
+    branches:
+      - main
+      - dev
+  push:
+    branches:
+      - main
+      - dev-*   # dev-new, dev-1, ...
+      - feature/HCO-*  # feature/HCO-26878, ...
+      - feature/**    # feature/new, feature/new/latest, ...
+      
   workflow_dispatch:
 jobs:
   deploy:
